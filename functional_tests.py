@@ -20,6 +20,7 @@ class NewVisitorTest(unittest.TestCase):
         # the first item is in the second. assertNotIn checks the opposite
         self.assertIn('To-Do', self.browser.title)
         # fail just fails no matter what and produces the error message
+        # serves as reminder to finish the actual test
         self.fail('Finish the test!')
 
 if __name__ == '__main__':
