@@ -49,7 +49,8 @@ class NewVisitorTest(unittest.TestCase):
 #also works with dictionaries but only returns if any of the keys are True not
 #the values
         self.assertTrue(
-                any(row.text == '1: Buy peacock feathers' for row in rows)
+                any(row.text == '1: Buy peacock feathers' for row in rows),
+                "New to-do item did not appear in table"
                 )
 
         # fail just fails no matter what and produces the error message
