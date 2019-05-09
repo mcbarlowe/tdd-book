@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lists' #have to add the folder for each app you create to this list in django
 ]
 
 MIDDLEWARE = [
