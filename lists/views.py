@@ -8,4 +8,4 @@ def home_page(request):
 #and then builds an HttpResponse based on the content of the template
 #Django templates main strength consist of substituting Python variables into
 #HTML text which is why the code uses render instead of manually reading the
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'new_item_text': request.POST.get('item_text',''),})

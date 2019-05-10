@@ -38,9 +38,14 @@ class NewVisitorTest(unittest.TestCase):
                 )
 
 #send_keys is Selenium's way of typing into input elemtns
+        inputbox.send_keys('Buy peacock feathers')
         inputbox.send_keys(Keys.ENTER)
 #time.sleep() is there to make sure the browser has finished loading
 #before any assertions are made. This is called an explicit wait
+        time.sleep(1)
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Use peacock feathers to make a fly')
+        inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         table = self.browser.find_element_by_id('id_list_table')
@@ -48,10 +53,8 @@ class NewVisitorTest(unittest.TestCase):
 #any() checks if any item in the iterable is true and returns true if so. This
 #also works with dictionaries but only returns if any of the keys are True not
 #the values
-        self.assertTrue(
-                any(row.text == '1: Buy peacock feathers' for row in rows),
-                "New to-do item did not appear in table"
-                )
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        self.assertIn('2: Use peacock feathers to make a fly', [row.text for row in rows])
 
         # fail just fails no matter what and produces the error message
         # serves as reminder to finish the actual test
