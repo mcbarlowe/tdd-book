@@ -1,14 +1,13 @@
 '''Tests for our list website'''
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
-from django.test import LiveServerTestCase
-import time
-import unittest
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 MAX_WAIT = 10
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     # setUp methods of test classes are executed before each test
     def setUp(self):
         self.browser = webdriver.Firefox()
