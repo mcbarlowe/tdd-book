@@ -1,4 +1,5 @@
 '''Tests for our list website'''
+import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -11,6 +12,9 @@ class NewVisitorTest(StaticLiveServerTestCase):
     # setUp methods of test classes are executed before each test
     def setUp(self):
         self.browser = webdriver.Firefox()
+        staging_server = os.environ.get('STAGING_SERVER')
+        if staging_server:
+            self.liver_server_url = f'http://{staging_server}'
 
     # tearDown methods run after each test method
     def tearDown(self):
