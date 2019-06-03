@@ -25,7 +25,7 @@ SECRET_KEY = 'dlm2$@_!kn9p^zm2j5=a0+vw2zv+k-&_5)dy+hgy!!i79ij=&i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
