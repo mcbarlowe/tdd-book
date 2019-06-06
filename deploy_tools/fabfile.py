@@ -3,6 +3,11 @@ from fabric.contrib.files import append, exists
 from fabric.api import cd, env, local, run
 
 REPO_URL = 'https://github.com/mcbarlowe/tdd-book.git'
+SITE_URL = 'test.theseventhman.net'
+
+env.user = 'ubuntu'
+env.hosts = ['ec2-18-234-126-153.compute-1.amazonaws.com']
+env.key_filename = ['~/.ssh/twitterbotkeyfile.pem']
 
 def _get_latest_source():
     if exists('.git'):
@@ -34,7 +39,7 @@ def _update_database():
 
 def deploy():
     '''function to deploy our website to a new server'''
-    site_folder = f'/home/{env.user}/sites/{env.host}'
+    site_folder = f'/home/{env.user}/sites/{SITE_URL}'
     run(f'mkdir -p {site_folder}')
     with cd(site_folder):
         _get_latest_source()

@@ -40,3 +40,15 @@ Assume we have a user account at /home/username
          ├── .env
          ├── db.sqlite3
          ├── etc
+
+## Fabric
+
+Have to add in these for ec2 deployment
+
+    env.user = 'ubuntu'
+    env.hosts = ['ec2_instance_address']
+    env.key_filename = ['path_to_ssh_key']
+
+Also need to set the URL for the site you are deploying in `SITE_URL` variable
+because the user name and host is different than what it would be for another
+server
