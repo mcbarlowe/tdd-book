@@ -12,5 +12,4 @@ class ItemFormTest(TestCase):
         form = ItemForm(data={'text': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['text'], ["You can't have an empty list item"])
-        form.save()
 
